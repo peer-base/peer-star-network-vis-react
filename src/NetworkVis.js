@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import NetworkVisualization from './network-visualization'
-import peerColor from './peer-color'
+import NetworkVisualization from 'peer-star-network-vis'
+import peerColor from 'peer-star-peer-color'
 
 class NetworkVis extends Component {
 
@@ -128,14 +128,15 @@ class NetworkVis extends Component {
     }
 
     return (
-      <div style={{width: '100%', height:'600px'}}>
-        <svg style={{
-          border: '0.5px solid grey',
-          height: '600px',
-          width: '66%',
-          float: 'left'
-        }} ref="graph"></svg>
-        {this.state.selectedPeer ? (statsTable ? statsTable : <p>Waiting for stats...</p>) : <p>Click on peer...</p>}
+      <div className="container-fluid">
+        <div class="row">
+          <svg className="col-8" style={{
+            height: this.props.height || '600px'
+          }} ref="graph"></svg>
+          <div className="col-4">
+            {this.state.selectedPeer ? (statsTable ? statsTable : <p>Waiting for stats...</p>) : <p>Click on peer...</p>}
+          </div>
+        </div>
       </div>)
   }
 

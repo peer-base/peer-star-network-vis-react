@@ -36,13 +36,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _networkVisualization = require('./network-visualization');
+var _peerStarNetworkVis = require('peer-star-network-vis');
 
-var _networkVisualization2 = _interopRequireDefault(_networkVisualization);
+var _peerStarNetworkVis2 = _interopRequireDefault(_peerStarNetworkVis);
 
-var _peerColor = require('./peer-color');
+var _peerStarPeerColor = require('peer-star-peer-color');
 
-var _peerColor2 = _interopRequireDefault(_peerColor);
+var _peerStarPeerColor2 = _interopRequireDefault(_peerStarPeerColor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -402,21 +402,26 @@ var NetworkVis = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: { width: '100%', height: '600px' } },
-        _react2.default.createElement('svg', { style: {
-            border: '0.5px solid grey',
-            height: '600px',
-            width: '66%',
-            float: 'left'
-          }, ref: 'graph' }),
-        this.state.selectedPeer ? statsTable ? statsTable : _react2.default.createElement(
-          'p',
-          null,
-          'Waiting for stats...'
-        ) : _react2.default.createElement(
-          'p',
-          null,
-          'Click on peer...'
+        { className: 'container-fluid' },
+        _react2.default.createElement(
+          'div',
+          { 'class': 'row' },
+          _react2.default.createElement('svg', { className: 'col-8', style: {
+              height: this.props.height || '600px'
+            }, ref: 'graph' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-4' },
+            this.state.selectedPeer ? statsTable ? statsTable : _react2.default.createElement(
+              'p',
+              null,
+              'Waiting for stats...'
+            ) : _react2.default.createElement(
+              'p',
+              null,
+              'Click on peer...'
+            )
+          )
         )
       );
     }
@@ -459,7 +464,7 @@ var NetworkVis = function (_Component) {
               case 0:
                 this.setState({ initialized: true });
                 _context.next = 3;
-                return (0, _networkVisualization2.default)(this.props.collaboration, this.refs.graph);
+                return (0, _peerStarNetworkVis2.default)(this.props.collaboration, this.refs.graph);
 
               case 3:
                 this._vis = _context.sent;
@@ -502,7 +507,7 @@ var NetworkVis = function (_Component) {
 
 function shortPeerId(peerId) {
   var shortId = peerId.slice(0, 6) + '…' + peerId.slice(peerId.length - 6);
-  var color = (0, _peerColor2.default)(peerId);
+  var color = (0, _peerStarPeerColor2.default)(peerId);
   return _react2.default.createElement(
     'span',
     { style: { color: color } },

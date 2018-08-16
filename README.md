@@ -22,6 +22,13 @@ collaboration = await dApp.collaborate('collaboration name', ...)
 <NetworkVis collaboration=collaboration />
 ```
 
+## Styling
+
+This component relies on some CSS classes that are defined in [the Bootstrap framework](https://getbootstrap.com).
+
+## Modifying
+
+If you find those class names, the layout or the markup not suitable to you, perhaps you can instead use this component as an example and use the underlying d3 network visualization canvas in [peer-star-network-vis](https://github.com/ipfs-shipyard/peer-star-network-vis).
 
 ## License
 
