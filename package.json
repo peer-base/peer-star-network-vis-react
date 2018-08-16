@@ -1,0 +1,43 @@
+{
+  "name": "peer-star-network-vis-react",
+  "version": "0.1.0",
+  "description": "Network Visualization for a Peer-* collaboration",
+  "main": "dist/NetworkVis.js",
+  "scripts": {
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "npm run transpile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs-shipyard/-projects-ipfs-peer-star-peer-star-network-vis-react.git"
+  },
+  "keywords": [
+    "ipfs",
+    "peer-star",
+    "peer-*",
+    "collaboration",
+    "network",
+    "visualization",
+    "react"
+  ],
+  "author": "Pedro Teixeira <i@pgte.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ipfs-shipyard/-projects-ipfs-peer-star-peer-star-network-vis-react/issues"
+  },
+  "homepage": "https://github.com/ipfs-shipyard/-projects-ipfs-peer-star-peer-star-network-vis-react#readme",
+  "peerDependencies": {
+    "react": "^16.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
