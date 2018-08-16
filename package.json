@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ipfs-shipyard/-projects-ipfs-peer-star-peer-star-network-vis-react.git"
+    "url": "git+https://github.com/ipfs-shipyard/peer-star-peer-star-network-vis-react.git"
   },
   "keywords": [
     "ipfs",
