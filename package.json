@@ -1,6 +1,6 @@
 {
   "name": "peer-star-network-vis-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Network Visualization for a Peer-* collaboration",
   "main": "dist/NetworkVis.js",
   "scripts": {
@@ -41,7 +41,7 @@
     "babel-preset-stage-0": "^6.24.1"
   },
   "dependencies": {
-    "peer-star-network-vis": "^0.1.1",
+    "peer-star-network-vis": "^0.1.2",
     "peer-star-peer-color": "^0.1.0"
   }
 }
