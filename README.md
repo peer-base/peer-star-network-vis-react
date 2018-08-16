@@ -6,7 +6,7 @@ React Component for [Peer-*](https://github.com/ipfs-shipyard/peer-star-app) col
 
 [![Build Status](https://travis-ci.org/ipfs-shipyard/peer-star-app.svg?branch=master)](https://travis-ci.org/ipfs-shipyard/peer-star-app)
 
-![Example](docs/example.png)
+![Example video](docs/example-video.gif)
 
 ## Example
 
