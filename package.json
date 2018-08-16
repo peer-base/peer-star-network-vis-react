@@ -1,6 +1,6 @@
 {
   "name": "peer-star-network-vis-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Network Visualization for a Peer-* collaboration",
   "main": "dist/NetworkVis.js",
   "scripts": {
