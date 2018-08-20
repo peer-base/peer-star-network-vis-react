@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NetworkVisualization from 'peer-star-network-vis'
 import peerColor from 'peer-star-peer-color'
 
-class NetworkVis extends Component {
-
-
+class NetworkVis extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -129,7 +127,7 @@ class NetworkVis extends Component {
 
     return (
       <div className="container-fluid">
-        <div class="row">
+        <div className="row">
           <svg className="col-8" style={{
             height: this.props.height || '600px'
           }} ref="graph"></svg>
@@ -140,14 +138,12 @@ class NetworkVis extends Component {
       </div>)
   }
 
-  componentDidUpdate () {
-    if (!this.state.initialized && this.refs.graph && this.props.collaboration) {
-      const { collaboration } = this.props
-      if (collaboration.app.ipfs.isOnline()) {
-        this.initVisualization()
-      } else {
-        collaboration.app.ipfs.once('ready', () => this.initVisualization())
-      }
+  componentDidMount () {
+    const { collaboration } = this.props
+    if (collaboration.app.ipfs.isOnline()) {
+      this.initVisualization()
+    } else {
+      collaboration.app.ipfs.once('ready', () => this.initVisualization())
     }
   }
 
@@ -164,7 +160,6 @@ class NetworkVis extends Component {
     this.setState({ initialized: true })
     this._vis = await NetworkVisualization(this.props.collaboration, this.refs.graph)
     this._vis.on('selected peer', (peerId) => {
-      console.log('peer selected', peerId)
       this.setState({selectedPeer: peerId})
     })
     this._vis.on('peer stats updated', ({peerId, stats}) => {

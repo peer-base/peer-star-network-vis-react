@@ -46,8 +46,8 @@ var _peerStarPeerColor2 = _interopRequireDefault(_peerStarPeerColor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NetworkVis = function (_Component) {
-  (0, _inherits3.default)(NetworkVis, _Component);
+var NetworkVis = function (_React$Component) {
+  (0, _inherits3.default)(NetworkVis, _React$Component);
 
   function NetworkVis(props) {
     (0, _classCallCheck3.default)(this, NetworkVis);
@@ -405,7 +405,7 @@ var NetworkVis = function (_Component) {
         { className: 'container-fluid' },
         _react2.default.createElement(
           'div',
-          { 'class': 'row' },
+          { className: 'row' },
           _react2.default.createElement('svg', { className: 'col-8', style: {
               height: this.props.height || '600px'
             }, ref: 'graph' }),
@@ -426,20 +426,18 @@ var NetworkVis = function (_Component) {
       );
     }
   }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       var _this3 = this;
 
-      if (!this.state.initialized && this.refs.graph && this.props.collaboration) {
-        var collaboration = this.props.collaboration;
+      var collaboration = this.props.collaboration;
 
-        if (collaboration.app.ipfs.isOnline()) {
-          this.initVisualization();
-        } else {
-          collaboration.app.ipfs.once('ready', function () {
-            return _this3.initVisualization();
-          });
-        }
+      if (collaboration.app.ipfs.isOnline()) {
+        this.initVisualization();
+      } else {
+        collaboration.app.ipfs.once('ready', function () {
+          return _this3.initVisualization();
+        });
       }
     }
   }, {
@@ -470,7 +468,6 @@ var NetworkVis = function (_Component) {
                 this._vis = _context.sent;
 
                 this._vis.on('selected peer', function (peerId) {
-                  console.log('peer selected', peerId);
                   _this4.setState({ selectedPeer: peerId });
                 });
                 this._vis.on('peer stats updated', function (_ref6) {
@@ -503,7 +500,7 @@ var NetworkVis = function (_Component) {
     }
   }]);
   return NetworkVis;
-}(_react.Component);
+}(_react2.default.Component);
 
 function shortPeerId(peerId) {
   var shortId = peerId.slice(0, 6) + '…' + peerId.slice(peerId.length - 6);
